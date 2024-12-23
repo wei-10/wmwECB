@@ -1,0 +1,17 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="main.sub_nx_egde" />
+          <option value="main.sub_edge" />
+          <option value="main.fishinet_gon" />
+          <option value="main.get_traj_edge_distance" />
+          <option value="main.columns" />
+          <option value="main.apply" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

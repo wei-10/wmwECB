@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d336dc6a-2ef8-46ca-93ff-eb471893e608" name="3060ti">
+        <fileTransfer rootFolder="/data" accessType="SFTP" host="bxznuwiojhliym3xsnow.deepln.com" port="44568" sshConfigId="1c7a08b9-a832-42d3-a3fa-a5c29f6028c4" sshConfig="root@bxznuwiojhliym3xsnow.deepln.com:44568 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="5a671fb3-9fa6-48e2-9d29-c2d10fd2aae3" name="3060Ti">
+        <fileTransfer rootFolder="/data" accessType="SFTP" host="ruygg3tqlmo7cwmpsnow.deepln.com" port="49450" sshConfigId="50414e04-af48-47a8-9d9b-abd4a7d29a8f" sshConfig="root@ruygg3tqlmo7cwmpsnow.deepln.com:49450 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="e38d33bc-29bf-482e-8b5e-dba75594e5ba" name="local">
+        <fileTransfer rootFolder="/home/bian/wmw" accessType="SFTP" host="120.26.198.90" port="2223" sshConfigId="465b447f-de7c-4128-9d7e-d96e20fb212e" sshConfig="bian@120.26.198.90:2223 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
