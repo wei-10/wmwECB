@@ -36,6 +36,7 @@ AUG:
   MASKMIX_ALPHA: 1.0
   MASKMIX_PROB: 0.5
 
+
 optimizer:
   lr: 1.0 # learning rate
   lr_vit: 0.001 # learning rate for ViT branch

@@ -359,7 +359,7 @@ def train(config, G1, G2, F1, F2, dset_loaders):
         ##### I. Supervised Learning #####
         ##################################
         ###### 1. ViT ######
-        vit_logits = F1(G1(labeled_input))  #labeled_input (Batch_size,C,W,H) (32,3,224,224)
+        vit_logits = F1(G1(labeled_input))
         vit_loss = ce_criterion(vit_logits, labeled_gt)
 
         vit_loss.backward()

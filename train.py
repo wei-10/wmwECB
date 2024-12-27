@@ -15,13 +15,13 @@ os.environ['http_proxy'] = "http://127.0.0.1:7890"
 os.environ['https_proxy'] = "http://127.0.0.1:7890"
 
 
+
 def parse_opt(known=False):
     parser = argparse.ArgumentParser(description="The proposed method")
     parser.add_argument(
         "--cfg",
         type=str,
         default="configs/train.yaml",
-
         help="config.yaml path",
     )
 
