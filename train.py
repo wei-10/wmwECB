@@ -9,6 +9,7 @@ from model.basenet import build_model
 from utils.dataloader import build_data
 from utils.utils import build_config, set_seed, write_logs
 import os
+# from utils import MaskMix  # 导入 MixPro（MaskMix）数据增强方法
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 os.environ['http_proxy'] = "http://127.0.0.1:7890"
 os.environ['https_proxy'] = "http://127.0.0.1:7890"

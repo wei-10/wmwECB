@@ -4,6 +4,7 @@
     <list>
       <list>
         <remote-mappings server-id="python@sftp://root@3bdixqmlngnv8fcusnow.deepln.com:47523/data/miniconda/envs/torch/bin/python" />
+        <remote-mappings server-id="python@sftp://bian@120.26.198.90:2222/home/bian/anaconda3/envs/ecb/bin/python" />
       </list>
     </list>
   </component>

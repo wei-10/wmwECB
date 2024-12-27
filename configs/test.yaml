@@ -32,6 +32,9 @@ dataset:
     params:
       resize_size: 256
       crop_size: 224
+AUG:
+  MASKMIX_ALPHA: 1.0
+  MASKMIX_PROB: 0.5
 
 optimizer:
   lr: 1.0 # learning rate
