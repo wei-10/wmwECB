@@ -80,6 +80,7 @@ def Rotate(img, v, max_v, bias=0):
     if random.random() < 0.5:
         v = -v
     return img.rotate(v)
+
 class RandAugmentMC(object):
     def __init__(self, n, m):
         assert n >= 1
@@ -87,6 +88,7 @@ class RandAugmentMC(object):
         self.n = n
         self.m = m
         self.augment_pool = fixmatch_augment_pool()
+
     def __call__(self, img):
         ops = random.choices(self.augment_pool, k=self.n)
         for op, max_v, bias in ops:
@@ -132,12 +134,50 @@ def SolarizeAdd(img, v, max_v, bias=0, threshold=128):
     return PIL.ImageOps.solarize(img, threshold)
 
 
+def source_train_strong1(
+    resize_size=256,
+    crop_size=224,
+    mean=[0.485, 0.456, 0.406],
+    std=[0.229, 0.224, 0.225],
+):
+    return transforms.Compose(
+        [
+            ResizeImage(resize_size),
+            transforms.RandomHorizontalFlip(),
+            RandAugmentMC(n=2, m=10),
+            transforms.RandomCrop(
+                size=crop_size
+            ),  # transforms.RandomCrop(size=crop_size,padding=int(crop_size*0.125)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=mean, std=std),
+        ]
+    )
+
+
 def TranslateX(img, v, max_v, bias=0):
     v = _float_parameter(v, max_v) + bias
     if random.random() < 0.5:
         v = -v
     v = int(v * img.size[0])
     return img.transform(img.size, PIL.Image.AFFINE, (1, 0, v, 0, 1, 0))
+### Transform based on ASDA ###
+def train_weak1(
+    resize_size=256,
+    crop_size=224,
+    mean=[0.485, 0.456, 0.406],
+    std=[0.229, 0.224, 0.225],
+):
+    return transforms.Compose(
+        [
+            ResizeImage(resize_size),
+            transforms.RandomHorizontalFlip(),
+            transforms.RandomCrop(
+                size=crop_size
+            ),  # transforms.RandomCrop(size=crop_size,padding=int(crop_size*0.125)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=mean, std=std),
+        ]
+    )
 
 
 def TranslateY(img, v, max_v, bias=0):
@@ -206,6 +246,7 @@ def preprocess(resize_size=256, crop_size=224):
     )
 
 
+
 ### Transform based on ASDA ###
 def train_weak(
     resize_size=256,
@@ -220,13 +261,28 @@ def train_weak(
             transforms.RandomCrop(
                 size=crop_size
             ),  # transforms.RandomCrop(size=crop_size,padding=int(crop_size*0.125)),
-            # MARK
-            RandAugmentMC(n=2, m=10),
             transforms.ToTensor(),
             transforms.Normalize(mean=mean, std=std),
         ]
     )
 
+
+
+
+def TranslateY(img, v, max_v, bias=0):
+    v = _float_parameter(v, max_v) + bias
+    if random.random() < 0.5:
+        v = -v
+    v = int(v * img.size[1])
+    return img.transform(img.size, PIL.Image.AFFINE, (1, 0, 0, 0, 1, v))
+
+
+def _float_parameter(v, max_v):
+    return float(v) * max_v / PARAMETER_MAX
+
+
+def _int_parameter(v, max_v):
+    return int(v * max_v / PARAMETER_MAX)
 
 
 def source_train_strong(
@@ -239,14 +295,18 @@ def source_train_strong(
         [
             ResizeImage(resize_size),
             transforms.RandomHorizontalFlip(),
+            transforms.RandomResizedCrop(crop_size),
+            transforms.ToTensor(),
             RandAugmentMC(n=2, m=10),
             transforms.RandomCrop(
                 size=crop_size
             ),  # transforms.RandomCrop(size=crop_size,padding=int(crop_size*0.125)),
             transforms.ToTensor(),
             transforms.Normalize(mean=mean, std=std),
+
         ]
     )
+
 
 
 def target_train_strong(
