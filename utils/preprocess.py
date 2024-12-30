@@ -323,7 +323,7 @@ def target_train_strong(
             transforms.RandomCrop(
                 size=crop_size
             ),  # transforms.RandomCrop(size=crop_size,padding=int(crop_size*0.125)),
-            # RandAugmentMC(n=2, m=10),
+            RandAugmentMC(n=2, m=10),
             transforms.ToTensor(),
             transforms.Normalize(mean=mean, std=std),
         ]

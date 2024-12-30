@@ -173,7 +173,7 @@ def build_model(config, DEVICE, pretrain = True):
         
     elif backbone_setting['name_2'] == "alexnet":
         G2 = AlexNetBase()
-        inc_2 = 4096
+        inc_2 = 1000
         
     elif backbone_setting['name_2'] == "vgg":
         G2 = VGGBase()

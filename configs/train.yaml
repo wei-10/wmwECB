@@ -48,7 +48,7 @@ Architecture:
   Backbone: 
     name_1: vit
     pretrained_1: 
-    name_2: resnet34
+    name_2: alexnet
     pretrained_2: 
 
   Classifier:

@@ -1,0 +1,7 @@
+  -- Domain task [webcam --> amazon]: 
+    -- The best CNN's Acc Target Val = 82.7957% The best Vit's Acc Target Val = 82.7957% 
+    -- The best CNN's Acc Target Test = 79.1850% The best ViT's Acc Target Test = 79.6623% 
+    -- Acc_Pseudo_Labels_CNN = 0.7932 Correct_Pseudo_Labels_CNN = 2144 Total_Pseudo_Labels_CNN = 2703       
+    -- Acc_Pseudo_Labels_ViT = 0.7909 Correct_Pseudo_Labels_ViT = 2152 Total_Pseudo_Labels_ViT = 2721       
+
+Iters: (33500/50000)      lr_g1 = 0.000033   lr_g2 = 0.000332   CNN's loss = 0.266208   ViT's Loss = 0.001179   loss_vit_to_cnn = 0.274457   loss_cnn_to_vit = 0.212070
